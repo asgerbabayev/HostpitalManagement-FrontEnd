@@ -225,6 +225,15 @@ function Patients() {
         }
         fetch();
     }, [])
+
+    function sendId() {
+        document.querySelectorAll(".send")
+            .forEach(x => {
+                const id = x.getAttribute("href").substring(x.getAttribute("href").lastIndexOf("=") + 1);
+                localStorage.setItem("patientId", id);
+            });
+    }
+
     return (
         <div className='d-flex flex-column justify-content-center' style={{ width: "98%" }}>
             {loading ? <Loader /> : ''}
@@ -244,13 +253,14 @@ function Patients() {
                     <tr>
                         <th>#</th>
                         <th className='text-center'>Ətraflı</th>
-                        <th>Qeydiyyat №</th>
                         <th>Ad</th>
                         <th>Soyad</th>
                         <th>Seria №</th>
                         <th>Telefon №</th>
                         <th>D. Tarixi</th>
                         <th>Cinsiyyət</th>
+                        <th>Qeydiyyat</th>
+                        <th className='text-center'>Status</th>
                         <th colSpan={2}>Əməliyyatlar</th>
                     </tr>
                 </thead>
@@ -259,14 +269,15 @@ function Patients() {
                         return (
                             <tr key={count++}>
                                 <th scope="row" >{count + 1}</th>
-                                <th><a href="/reception/patient/details"><i class="fa fa-info-circle fs-4 d-flex justify-content-center" aria-hidden="true"></i></a></th>
-                                <td>{data.registry.number}</td>
+                                <th><Link onClick={sendId} className="send" to={`/reception/patient/details/?id=${data.id}`}><i class="fa fa-info-circle fs-4 d-flex justify-content-center" aria-hidden="true"></i></Link></th>
                                 <td>{data.name}</td>
                                 <td>{data.surname}</td>
                                 <td>{data.identificationNumber}</td>
                                 <td>{data.phoneNumber}</td>
                                 <td>{new Date(data.birthDate).toDateString()}</td>
                                 <td>{data.gender}</td>
+                                <td>{data.registry.number}</td>
+                                <td className={data.registry.status === true ? 'text-danger fs-2' : "text-success fs-2"}>{data.registry.status === false ? <i class="fa-solid d-flex justify-content-center fa-circle-check"></i> : <i class="fa-solid d-flex justify-content-center fa-square-xmark"></i>}</td>
                                 <td><button className='btn btn-warning' data-mdb-toggle="modal"
                                     data-mdb-target="#exampleModal"
                                     data-mdb-whatever="@fat" id={data.id} onClick={get}>Dəyişdir</button></td>

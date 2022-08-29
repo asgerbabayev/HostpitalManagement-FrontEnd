@@ -48,14 +48,10 @@ function SideNav() {
                         </Link>
                         <Link to="/admin/rooms" className="list-group-item list-group-item-action py-2 ripple"
                         ><i className="fa-brands fa-intercom me-3"></i><span>Otaqlar</span></Link>
-                        <Link to="#" className="list-group-item list-group-item-action py-2 ripple"
-                        ><i className="fas fa-chart-line fa-fw me-3"></i><span>Materiallar</span></Link>
                         <Link to="/admin/stock" className="list-group-item list-group-item-action py-2 ripple"
                         ><i className="fa-solid fa-bag-shopping me-3"></i><span>Ambar</span></Link>
                         <Link to="/admin/medicines" className="list-group-item list-group-item-action py-2 ripple"
                         ><i className="fa-solid fa-capsules me-3"></i><span>Dərmanlar</span></Link>
-                        {/* <Link href="#" className="list-group-item list-group-item-action py-2 ripple"
-                        ><i className="fa-solid fa-gear me-3"></i><span>Tənzimləmələr</span></Link> */}
                         <Link to="#" onClick={logout} className="list-group-item list-group-item-action py-2 ripple"
                         ><i className="fa-solid fa-arrow-right-from-bracket me-3"></i><span>Çıxış et</span></Link>
                     </div>

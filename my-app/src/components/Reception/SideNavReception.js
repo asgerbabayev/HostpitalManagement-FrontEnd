@@ -43,6 +43,8 @@ function SideNav() {
                         <Link to="/reception/patients" className="list-group-item list-group-item-action py-2 ripple">
                             <i className="fa-solid fa-bed me-3"></i><span>Xəstələr</span>
                         </Link>
+                        <Link to="/reception/materials" className="list-group-item list-group-item-action py-2 ripple"
+                        ><i className="fas fa-chart-line fa-fw me-3"></i><span>T. Ləvazimatlar</span></Link>
                         <Link to="#" onClick={logout} className="list-group-item list-group-item-action py-2 ripple"
                         ><i className="fa-solid fa-arrow-right-from-bracket me-3"></i><span>Çıxış et</span></Link>
                     </div>

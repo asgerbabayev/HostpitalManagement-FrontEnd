@@ -92,6 +92,7 @@ function Patients() {
                         <th>Seria №</th>
                         <th>Telefon №</th>
                         <th>D. Tarixi</th>
+                        <th>Cinsi</th>
                         <th colSpan={2}>Əməliyyatlar</th>
                     </tr>
                 </thead>
@@ -106,7 +107,6 @@ function Patients() {
                                 <td>{data.phoneNumber}</td>
                                 <td>{data.birthDate}</td>
                                 <td>{data.gender}</td>
-                                <td>{data.registryId}</td>
                                 <td><button className='btn btn-danger' id={data.id} onClick={del}>Sil</button></td>
                             </tr>
                         )
