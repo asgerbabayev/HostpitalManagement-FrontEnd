@@ -30,16 +30,11 @@ function SideNav() {
             {loading ? <Loader /> : ''}
             <nav id="sidebarMenu" className="collapse  d-lg-block sidebar collapse bg-white">
                 <div className="position-sticky">
-                    <div className='d-flex justify-content-center mb-5'>
+                    <div className='d-flex flex-column align-items-center justify-content-center mb-5'>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_for_hospital_ship_of_the_Regia_Marina.svg/1200px-Flag_for_hospital_ship_of_the_Regia_Marina.svg.png" width='100' alt="" />
+                        <h5>ADMİN</h5>
                     </div>
                     <div className="list-group list-group-flush mx-3 mt-4">
-                        <Link
-                            to="/admin/home"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                            aria-current="true">
-                            <i className="fa-solid fa-home me-3"></i><span>Ana Səhifə</span>
-                        </Link>
                         <Link to="/admin/employees" className="list-group-item list-group-item-action py-2 ripple">
                             <i className="fa-solid fa-users me-3"></i><span>İşçilər</span>
                         </Link>

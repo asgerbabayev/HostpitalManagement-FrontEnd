@@ -55,11 +55,11 @@ const Login = () => {
     }
     if (redirect === 1) {
         localStorage.setItem("role", 1);
-        return <Redirect from='/' to='/admin/home' />
+        return <Redirect from='/' to='/admin/employees' />
     }
     else if (redirect === 2) {
         localStorage.setItem("role", 2);
-        return <Redirect from='/' to='/employeehome' />
+        return <Redirect from='/' to='/doctor/prescriptions' />
     }
     else if (redirect === 3) {
         localStorage.setItem("role", 3);

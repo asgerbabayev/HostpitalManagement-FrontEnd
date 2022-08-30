@@ -1,6 +1,5 @@
 import { BrowserRouter, Redirect, Route } from 'react-router-dom'
 import SideNav from '../components/Admin/SideNavAdmin'
-import Statistics from '../components/Admin/Statistics'
 import Employees from '../components/Admin/Employees'
 import Patients from '../components/Admin/Patients'
 import Rooms from '../components/Admin/Rooms'
@@ -21,7 +20,6 @@ function Home() {
                         <SideNav />
                     </div>
                     <div className='col-lg-10'>
-                        <Route path='/admin/home' exact component={Statistics} />
                         <Route path='/admin/employees' component={Employees} />
                         <Route path='/admin/patients' component={Patients} />
                         <Route path='/admin/rooms' component={Rooms} />

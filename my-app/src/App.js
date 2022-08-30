@@ -4,6 +4,7 @@ import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Home from './pages/Home'
 import HomeReception from './pages/HomeReception'
+import HomeDoctor from './pages/HomeDoctor'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 
@@ -17,6 +18,7 @@ export default function App() {
         <Route path='/resetpassword' component={ResetPassword} />
         <Route path='/admin/' component={Home} />
         <Route path='/reception/' component={HomeReception} />
+        <Route path='/doctor/' component={HomeDoctor} />
       </BrowserRouter>
     </div>
   )

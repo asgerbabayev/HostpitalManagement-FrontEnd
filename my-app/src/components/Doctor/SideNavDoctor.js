@@ -32,20 +32,15 @@ function SideNav() {
                 <div className="position-sticky">
                     <div className='d-flex flex-column align-items-center justify-content-center mb-5'>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_for_hospital_ship_of_the_Regia_Marina.svg/1200px-Flag_for_hospital_ship_of_the_Regia_Marina.svg.png" width='100' alt="" />
-                        <h5>RESEPŞN</h5>
+                        <h5>HƏKİM</h5>
                     </div>
                     <div className="list-group list-group-flush mx-3 mt-4">
-                        <Link
-                            to="/reception/registry"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                            aria-current="true">
-                            <i className="fa-solid fa-home me-3"></i><span>Qeydiyyatlar</span>
+                        <Link to="/doctor/prescriptions" className="list-group-item list-group-item-action py-2 ripple">
+                            <i className="fa-solid fa-users me-3"></i><span>Reseptlər</span>
                         </Link>
-                        <Link to="/reception/patients" className="list-group-item list-group-item-action py-2 ripple">
-                            <i className="fa-solid fa-bed me-3"></i><span>Xəstələr</span>
+                        <Link to="/doctor/controls" className="list-group-item list-group-item-action py-2 ripple">
+                            <i className="fa-solid fa-bed me-3"></i><span>Müayinələr</span>
                         </Link>
-                        <Link title='Tibbi ləvazimatlar' to="/reception/materials" className="list-group-item list-group-item-action text-nowrap py-2 ripple"
-                        ><i className="fas fa-chart-line fa-fw me-3 "></i><span className='text-nowrap'>Tibbi Ləvazimatlar</span></Link>
                         <Link to="#" onClick={logout} className="list-group-item list-group-item-action py-2 ripple"
                         ><i className="fa-solid fa-arrow-right-from-bracket me-3"></i><span>Çıxış et</span></Link>
                     </div>

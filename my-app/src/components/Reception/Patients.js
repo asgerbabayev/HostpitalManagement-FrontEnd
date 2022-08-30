@@ -81,6 +81,7 @@ function Patients() {
     }
 
     async function update(e) {
+        check();
         e.preventDefault();
 
         let data = {
@@ -116,6 +117,7 @@ function Patients() {
         }
     }
     async function add(e) {
+        check();
         e.preventDefault();
         axiosHeader();
         let data = {
@@ -160,6 +162,7 @@ function Patients() {
     }
 
     async function del(e) {
+        check();
         let id = parseInt(e.target.getAttribute('id'));
         axiosHeader();
         setLoading(true);
@@ -201,37 +204,30 @@ function Patients() {
 
     useEffect(() => {
         axiosHeader();
+        setLoading(true);
+        check();
         const fetchRegistries = async () => {
-            setLoading(true);
             await axios.get(`https://localhost:44398/registry/all`)
                 .then(response => {
                     setRegistry(response.data.data);
-                    setLoading(false);
                 }).catch(e => {
-                    setLoading(false);
                 });
         }
         fetchRegistries();
         const fetch = async () => {
-            setLoading(true);
             await axios.get(`https://localhost:44398/patient/all`)
                 .then(response => {
                     console.log(response);
                     setPatients(response.data.data);
                     setLoading(false);
                 }).catch(e => {
-                    setLoading(false);
                 });
         }
         fetch();
     }, [])
 
-    function sendId() {
-        document.querySelectorAll(".send")
-            .forEach(x => {
-                const id = x.getAttribute("href").substring(x.getAttribute("href").lastIndexOf("=") + 1);
-                localStorage.setItem("patientId", id);
-            });
+    function sendId(e) {
+        localStorage.setItem("patientId", e.target.id);
     }
 
     return (
@@ -269,7 +265,7 @@ function Patients() {
                         return (
                             <tr key={count++}>
                                 <th scope="row" >{count + 1}</th>
-                                <th><Link onClick={sendId} className="send" to={`/reception/patient/details/?id=${data.id}`}><i class="fa fa-info-circle fs-4 d-flex justify-content-center" aria-hidden="true"></i></Link></th>
+                                <th><Link to={`/reception/patient/details/?id=${data.id}`}><i onClick={sendId} id={data.id} class="fa fa-info-circle fs-4 d-flex justify-content-center" aria-hidden="true"></i></Link></th>
                                 <td>{data.name}</td>
                                 <td>{data.surname}</td>
                                 <td>{data.identificationNumber}</td>
@@ -333,7 +329,7 @@ function Patients() {
                                     <option value="" disabled defaultValue>Qeydiyyat seçin</option>
                                     {registry.map(data => {
                                         return (
-                                            <option key={data.number} value={data.id}> {data.number}</option>
+                                            <option key={data.number} value={data.id}>{data.id} - {data.number}</option>
                                         )
                                     })}
                                 </select>

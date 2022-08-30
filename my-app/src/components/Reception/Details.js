@@ -9,9 +9,6 @@ function Details() {
     const [registry, setRegistry] = useState({});
     const [employee, setEmployee] = useState({});
     const [room, setRoom] = useState({});
-    const [stock, setStock] = useState([]);
-    const [material, setMaterial] = useState([]);
-    const [registryId, setRegistryId] = useState();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState();
 
@@ -51,43 +48,12 @@ function Details() {
                     setRegistry(response.data.data.registry);
                     setEmployee(response.data.data.registry.employee);
                     setRoom(response.data.data.registry.room);
-                    setRegistryId(response.data.data.registry.id);
                     setLoading(false);
                 }).catch(e => {
                     setLoading(false);
                 });
         }
         fetch();
-        const fetchStock = async () => {
-            setLoading(true);
-            axios.defaults.headers.post["Content-Type"] = "application/json";
-            axios.defaults.headers["Access-Control-Allow-Methods"] = "DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT";
-            axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
-            axios.defaults.withCredentials = true;
-            await axios.get(`https://localhost:44398/stock/all`)
-                .then(response => {
-                    setStock(response.data.data);
-                    setLoading(false);
-                }).catch(e => {
-                    setLoading(false);
-                });
-        }
-        fetchStock();
-        const fetchMaterial = async () => {
-            setLoading(true);
-            axios.defaults.headers.post["Content-Type"] = "application/json";
-            axios.defaults.headers["Access-Control-Allow-Methods"] = "DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT";
-            axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
-            axios.defaults.withCredentials = true;
-            await axios.get(`https://localhost:44398/material/all`)
-                .then(response => {
-                    setMaterial(response.data.data);
-                    setLoading(false);
-                }).catch(e => {
-                    setLoading(false);
-                });
-        }
-        fetchMaterial();
     }, [])
 
     return (

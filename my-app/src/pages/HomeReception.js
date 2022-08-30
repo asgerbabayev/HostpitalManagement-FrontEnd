@@ -4,6 +4,7 @@ import SideNav from '../components/Reception/SideNavReception'
 import Registry from '../components/Reception/Registry'
 import Patients from '../components/Reception/Patients';
 import Details from '../components/Reception/Details';
+import Materials from '../components/Reception/Materials';
 
 function Home() {
     var date1 = new Date((localStorage.getItem("date"))).toString();
@@ -21,6 +22,7 @@ function Home() {
                         <Route path='/reception/registry' component={Registry} />
                         <Route path='/reception/patients' component={Patients} />
                         <Route path='/reception/patient/details' component={Details} />
+                        <Route path='/reception/materials' component={Materials} />
                     </div>
                 </div>
             </BrowserRouter>
